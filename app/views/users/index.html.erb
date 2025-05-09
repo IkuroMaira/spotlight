@@ -1,2 +1,12 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<h1>Users</h1>
+
+<!-- On créer un lien qui va lancer "new_user_path" afin de créer un nouvel utilisateur -->
+<%= link_to "Nouvel utilisateur", new_user_path %>
+
+<div id="users">
+  <% @users.each do |user| %>
+    <div>
+      <%= link_to user.pseudo, user %>
+    </div>
+  <% end %>
+</div>

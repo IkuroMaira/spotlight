@@ -1,0 +1,10 @@
+<h1><%= @user.pseudo %></h1>
+
+<p>Email: <%= @user.email %></p>
+<p>ID: <%= @user.id %></p>
+<p>Ville: <%= @user.city %></p>
+
+<!-- Sorte de lien vers la page d'arrière -->
+<%= link_to "Modifier", edit_user_path(@user) %>
+<%= button_to "Delete", @user, method: :delete, data: {turbo_confirm: "Êtes-vous sûr ?"} %>
+<%= link_to "Back", users_path %>
