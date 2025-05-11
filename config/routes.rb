@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "home/index"
   get "spots/index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -18,9 +19,10 @@ Rails.application.routes.draw do
   # post "/users", to: "users#create"
   # get "/users/:id", to: "users#show"
 
+  resources :home
   resources :users
   resources :spots
 
   # On indique le route racine qui est défini sur l'index des Users
-  root "spots#index"
+  root "home#index"
 end

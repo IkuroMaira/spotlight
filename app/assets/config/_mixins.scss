@@ -1,0 +1,44 @@
+// app/assets/stylesheets/config/_mixins.scss
+@use "variables" as *;
+
+@mixin responsive($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+}
+
+@mixin responsive-container {
+  width: 100%;
+  padding: 0 1rem;
+  margin: 0 auto;
+
+  @include responsive('sm') {
+    max-width: 540px;
+  }
+
+  @include responsive('md') {
+    max-width: 720px;
+  }
+
+  @include responsive('lg') {
+    max-width: 960px;
+  }
+
+  @include responsive('xl') {
+    max-width: 1140px;
+  }
+}
+
+@mixin card-style {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+}
