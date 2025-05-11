@@ -1,0 +1,50 @@
+// app/assets/stylesheets/application.scss
+
+// Variables directement dans le fichier principal
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$font-primary: system-ui, -apple-system, sans-serif;
+
+// Styles globaux
+body {
+  font-family: $font-primary;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+// Composants
+.map-container {
+  width: 100%;
+  height: 500px;
+  position: relative;
+
+  .mapboxgl-canvas {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.spot-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  &__title {
+    font-size: 1.2rem;
+    color: $primary-color;
+    margin-bottom: 0.5rem;
+  }
+
+  &__description {
+    color: #666;
+  }
+}

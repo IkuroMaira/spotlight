@@ -1,0 +1,2 @@
+class UsersSpot < ApplicationRecord
+end

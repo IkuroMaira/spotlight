@@ -1,0 +1,2 @@
+class ImpactCategory < ApplicationRecord
+end

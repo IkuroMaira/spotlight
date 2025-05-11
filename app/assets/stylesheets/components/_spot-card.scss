@@ -1,0 +1,35 @@
+// components/_spot-card.scss
+.spot-card {
+  @include card-style;
+  margin-bottom: 1rem;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+
+  &__tag {
+    background-color: $primary-color;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+
+    &--social {
+      background-color: $success-color;
+    }
+  }
+}

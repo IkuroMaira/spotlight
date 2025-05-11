@@ -1,0 +1,23 @@
+// app/assets/stylesheets/config/_variables.scss
+// Couleurs
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$success-color: #28a745;
+$danger-color: #dc3545;
+
+// Typographie
+$font-primary: system-ui, -apple-system, sans-serif;
+$font-secondary: 'Roboto', sans-serif;
+
+// Couleurs de base
+$background-color: #ffffff;
+$text-color: #333333;
+
+// Breakpoints
+$breakpoints: (
+        'xs': 0,
+        'sm': 576px,
+        'md': 768px,
+        'lg': 992px,
+        'xl': 1200px
+);

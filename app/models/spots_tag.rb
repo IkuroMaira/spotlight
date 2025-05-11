@@ -1,0 +1,2 @@
+class SpotsTag < ApplicationRecord
+end

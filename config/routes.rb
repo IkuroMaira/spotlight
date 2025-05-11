@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "home/index"
+  get "spots/index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -11,4 +13,16 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  # Les routes pour users qui sont aussi définies avec "ressources users"
+  # get "/users", to: "users#index"
+  # post "/users", to: "users#create"
+  # get "/users/:id", to: "users#show"
+
+  resources :home
+  resources :users
+  resources :spots
+
+  # On indique le route racine qui est défini sur l'index des Users
+  root "home#index"
 end
