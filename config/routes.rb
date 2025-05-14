@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  get "home/index"
-  get "spots/index"
+  resource :session
+  resources :passwords, param: :token
+
+  # TODO: à supprimer ?
+  # get "home/index"
+  # get "spots/index"
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -11,8 +16,6 @@ Rails.application.routes.draw do
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
-  # Defines the root path route ("/")
-  # root "posts#index"
 
   # Les routes pour users qui sont aussi définies avec "ressources users"
   # get "/users", to: "users#index"
@@ -23,6 +26,6 @@ Rails.application.routes.draw do
   resources :users
   resources :spots
 
-  # On indique le route racine qui est défini sur l'index des Users
+  # Defines the root path route ("/")
   root "home#index"
 end

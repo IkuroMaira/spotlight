@@ -1,4 +1,4 @@
-<h1>Modifier un utilisateur</h1>
+<h1>Modifier mon profil</h1>
 
 <%= render "form", user: @user %>
-<%= link_to "Cancel", users_path %>
+<%= link_to "Annuler", user_path(Current.user) %>

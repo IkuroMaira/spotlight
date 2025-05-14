@@ -32,8 +32,13 @@ class UsersController < ApplicationController
 
   # Mettre à jour un utilisateur
   def update
+    if params[:user][:password].blank?
+      params[:user].delete(:password)
+      params[:user].delete(:password_confirmation)
+    end
+
     if @user.update(user_params)
-      redirect_to @user
+      redirect_to @user, notice: "Votre profil a été mis à jour."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -41,6 +46,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
+    # Aller voir requête sous un format
     redirect_to users_path
   end
 
@@ -48,7 +54,8 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
+
   def user_params
-    params.require(:user).permit(:pseudo, :email, :password, :city)
+    params.require(:user).permit(:username, :email_address, :password, :password_confirmation)
   end
 end

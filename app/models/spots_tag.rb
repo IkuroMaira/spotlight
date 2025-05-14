@@ -1,2 +1,0 @@
-class SpotsTag < ApplicationRecord
-end

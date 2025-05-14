@@ -1,25 +1,42 @@
 <%= form_with model: @user do |form| %>
+  <% if @user.errors.any? %>
+    <div>
+      <h4><%= pluralize(@user.errors.count, "erreur") %> :</h4>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div>
-    <%= form.label :pseudo %>
-    <%= form.text_field :pseudo %>
+    <%= form.label :username, "Pseudo" %>
+    <%= form.text_field :username %>
   </div>
 
   <div>
-    <%= form.label :email %>
-    <%= form.text_field :email %>
+    <%= form.label :email_address, "Email" %>
+    <%= form.email_field :email_address %>
   </div>
 
+  <!-- TODO: revoir la partie password car j'ai un "edit" dans le views/passwords/edit -->
   <div>
-    <%= form.label :password %>
-    <%= form.text_field :password %>
+    <%= form.label :password, "Mot de passe #{"laisser vide si inchangé" if @user.persisted?}" %>
+    <%= form.password_field :password, required: !@user.persisted? %>
+    <% if @user.persisted? %>
+      <small>Laissez ce champ vide si vous ne souhaitez pas changer votre mot de passe.</small>
+    <% end %>
   </div>
 
-  <div>
-    <%= form.label :city %>
-    <%= form.text_field :city %>
-  </div>
+  <% if @user.persisted? %>
+    <div>
+      <%= form.label :password_confirmation, "Confirmation du mot de passe"%>
+      <%= form.password_field :password_confirmation%>
+    </div>
+  <% end %>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Mettre à jour mon profil" %>
   </div>
 <% end %>

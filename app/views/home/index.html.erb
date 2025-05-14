@@ -1,1 +1,16 @@
-<h1>Home Page</h1>
+<h1 class="text-5xl font-bold">Home Page</h1>
+
+<% if authenticated? %>
+  <button class="btn btn-neutral">
+    <%= link_to "Profil", user_path(Current.user) %>
+  </button>
+  <button class="btn btn-neutral">
+    <%= link_to "Vos spots", spots_path %>
+  </button>
+  <!-- TODO: ajouter la route vers le formulaire d'ajout de spots -->
+  <button class="btn btn-neutral">
+    <%= link_to "Ajouter un spot", new_spot_path %>
+  </button>
+<% else %>
+  <%= link_to "Se connecter", new_session_path %>
+<% end %>

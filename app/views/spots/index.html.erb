@@ -1,14 +1,50 @@
-<h1>Les spots sur un carte</h1>
+<h1 class="text-2xl font-bold m-4">Page des spots</h1>
 
-<h2>SpotLight Map</h2>
+<%= link_to "Back", root_path %>
+<%= render "mapbox" %>
 
-<div data-controller="map" class="map-container">
-  <div
-    data-map-target="map"
-    id="map"
-    data-map-token="<%= ENV['MAPBOX_ACCESS_TOKEN'] %>"
-    style="height: 500px; width: 100%; border-radius: 8px;"
-  >
-    Chargement de la carte...
-  </div>
+<div class="">
+  <h1 class="text-2xl font-bold m-4">Tous les spots</h1>
+
+  <% if @spots.any? %>
+    <div class="">
+      <% @spots.each do |spot| %>
+        <div class="">
+          <h2><%= spot.name %></h2>
+
+          <div class="">
+            <p><%= spot.description %></p>
+
+            <div class="">
+              <span>Le: <%= spot.created_at.strftime("%d/%m/%Y") %></span>
+            </div>
+
+            <div class="m-4">
+              <%= link_to "Voir", spot_path(spot), class: "btn btn-primary" %>
+
+              <% if authenticated? && spot.user == Current.user %>
+                <%= link_to "Modifier", edit_spot_path(spot), class: "btn btn-secondary" %>
+                <%= link_to "Supprimer", spot_path(spot),
+                            method: :delete,
+                            data: { turbo_confirm: "Êtes-vous sûr de vouloir supprimer ce spot ?" },
+                            class: "btn btn-danger" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+  <% else %>
+    <div class="">
+      <p>Aucun spot n'a encore été ajouté.</p>
+      <%= link_to "Ajouter un spot", new_spot_path, class: "btn btn-neutral m-4" %>
+    </div>
+  <% end %>
+
+  <% if authenticated? %>
+    <div class="">
+      <%= link_to "Ajouter un nouveau spot", new_spot_path, class: "btn btn-neutral m-4" %>
+    </div>
+  <% end %>
 </div>

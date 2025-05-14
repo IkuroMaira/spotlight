@@ -1,0 +1,37 @@
+<div class="container m-4">
+  <%= form_with model: @spot do |form| %>
+    <% if @spot.errors.any? %>
+      <div>
+        <h4><%= pluralize(@spot.errors.count, "erreur") %> :</h4>
+        <ul>
+          <% @spot.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <fieldset class="fieldset">
+      <%= form.label :name, "Nom de l'établissement", class: "fieldset-legend" %>
+      <%= form.text_field :name, class: "input", placeholder: "Musée Grévin" %>
+    </fieldset>
+
+    <fieldset class="fieldset">
+      <%= form.label :description, "Description", class: "fieldset-legend" %>
+      <%= form.text_field :description, class: "input", placeholder: "Lieu pour les potes..." %>
+    </fieldset>
+
+    <fieldset class="fieldset">
+      <%= form.label :address, "Adresse", class: "fieldset-legend" %>
+      <%= form.text_field :address, class: "textarea h24", placeholder: "33 rue ..." %>
+    </fieldset>
+
+    <!-- TODO: Ajouter les autres input nécessaire -->
+
+    <div class="container m-4">
+      <%= form.submit "Ajouter un spot", class: "btn" %>
+      <%= link_to "Annuler", spots_path, class: "btn" %>
+    </div>
+  <% end %>
+</div>
+

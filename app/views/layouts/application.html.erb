@@ -24,10 +24,16 @@
 
     <!-- Mapbox -->
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.12.0/mapbox-gl.css" rel="stylesheet">
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.12.0/mapbox-gl.js"></script>
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar bg-neutral text-neutral-content">
+      <%= link_to "Home", root_path, class: "m-4" %>
+      <%= button_to "Log out", session_path, class: "m-4", method: :delete if authenticated?%>
+    </nav>
+
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>

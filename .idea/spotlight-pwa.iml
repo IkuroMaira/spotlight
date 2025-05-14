@@ -42,6 +42,7 @@
     <orderEntry type="library" scope="PROVIDED" name="addressable (v2.8.7, rbenv: 3.4.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ast (v2.4.3, rbenv: 3.4.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="base64 (v0.2.0, rbenv: 3.4.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bcrypt (v3.1.20, rbenv: 3.4.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bcrypt_pbkdf (v1.1.1, rbenv: 3.4.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="benchmark (v0.4.0, rbenv: 3.4.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bigdecimal (v3.1.9, rbenv: 3.4.3) [gem]" level="application" />
@@ -64,6 +65,7 @@
     <orderEntry type="library" scope="PROVIDED" name="erubi (v1.13.1, rbenv: 3.4.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="et-orbi (v1.2.11, rbenv: 3.4.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ffi (v1.17.2, rbenv: 3.4.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="foreman (v0.88.1, rbenv: 3.4.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="fugit (v1.11.1, rbenv: 3.4.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="globalid (v1.2.1, rbenv: 3.4.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="google-protobuf (v4.30.2, rbenv: 3.4.3) [gem]" level="application" />
@@ -84,6 +86,7 @@
     <orderEntry type="library" scope="PROVIDED" name="mapkick-rb (v0.2.0, rbenv: 3.4.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="marcel (v1.0.4, rbenv: 3.4.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="matrix (v0.4.2, rbenv: 3.4.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="method_source (v1.1.0, rbenv: 3.4.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mini_mime (v1.1.5, rbenv: 3.4.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="minitest (v5.25.5, rbenv: 3.4.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="msgpack (v1.8.0, rbenv: 3.4.3) [gem]" level="application" />
@@ -141,6 +144,8 @@
     <orderEntry type="library" scope="PROVIDED" name="sshkit (v1.24.0, rbenv: 3.4.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="stimulus-rails (v1.3.4, rbenv: 3.4.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="stringio (v3.1.7, rbenv: 3.4.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="tailwindcss-rails (v4.2.3, rbenv: 3.4.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="tailwindcss-ruby (v4.1.6, rbenv: 3.4.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thor (v1.3.2, rbenv: 3.4.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thruster (v0.1.13, rbenv: 3.4.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="timeout (v0.4.3, rbenv: 3.4.3) [gem]" level="application" />
@@ -150,6 +155,7 @@
     <orderEntry type="library" scope="PROVIDED" name="unicode-emoji (v4.0.4, rbenv: 3.4.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="uri (v1.0.3, rbenv: 3.4.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="useragent (v0.16.11, rbenv: 3.4.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="view_component (v3.21.0, rbenv: 3.4.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="web-console (v4.2.1, rbenv: 3.4.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="websocket (v1.2.11, rbenv: 3.4.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="websocket-driver (v0.7.7, rbenv: 3.4.3) [gem]" level="application" />
@@ -170,30 +176,43 @@
         <option value="authentication" />
         <option value="benchmark" />
         <option value="channel" />
+        <option value="component" />
         <option value="controller" />
         <option value="erb:authentication" />
+        <option value="erb:component" />
+        <option value="erb:controller" />
+        <option value="erb:mailer" />
+        <option value="erb:scaffold" />
         <option value="generator" />
+        <option value="haml:component" />
         <option value="helper" />
         <option value="integration_test" />
         <option value="jbuilder" />
         <option value="job" />
+        <option value="locale:component" />
         <option value="mailbox" />
         <option value="mailer" />
         <option value="migration" />
         <option value="model" />
+        <option value="preview:component" />
         <option value="resource" />
+        <option value="rspec:component" />
         <option value="scaffold" />
         <option value="scaffold_controller" />
         <option value="script" />
+        <option value="slim:component" />
         <option value="solid_cable:install" />
         <option value="solid_cable:update" />
         <option value="solid_cache:install" />
         <option value="solid_queue:install" />
         <option value="stimulus" />
+        <option value="stimulus:component" />
         <option value="system_test" />
+        <option value="tailwindcss:component" />
         <option value="task" />
         <option value="test_unit:authentication" />
         <option value="test_unit:channel" />
+        <option value="test_unit:component" />
         <option value="test_unit:generator" />
         <option value="test_unit:install" />
         <option value="test_unit:mailbox" />
@@ -208,30 +227,43 @@
         <option value="authentication" />
         <option value="benchmark" />
         <option value="channel" />
+        <option value="component" />
         <option value="controller" />
         <option value="erb:authentication" />
+        <option value="erb:component" />
+        <option value="erb:controller" />
+        <option value="erb:mailer" />
+        <option value="erb:scaffold" />
         <option value="generator" />
+        <option value="haml:component" />
         <option value="helper" />
         <option value="integration_test" />
         <option value="jbuilder" />
         <option value="job" />
+        <option value="locale:component" />
         <option value="mailbox" />
         <option value="mailer" />
         <option value="migration" />
         <option value="model" />
+        <option value="preview:component" />
         <option value="resource" />
+        <option value="rspec:component" />
         <option value="scaffold" />
         <option value="scaffold_controller" />
         <option value="script" />
+        <option value="slim:component" />
         <option value="solid_cable:install" />
         <option value="solid_cable:update" />
         <option value="solid_cache:install" />
         <option value="solid_queue:install" />
         <option value="stimulus" />
+        <option value="stimulus:component" />
         <option value="system_test" />
+        <option value="tailwindcss:component" />
         <option value="task" />
         <option value="test_unit:authentication" />
         <option value="test_unit:channel" />
+        <option value="test_unit:component" />
         <option value="test_unit:generator" />
         <option value="test_unit:install" />
         <option value="test_unit:mailbox" />
@@ -527,6 +559,12 @@
               <RakeTaskImpl description="Setup Importmap for the app" fullCommand="importmap:install" id="install" />
             </subtasks>
           </RakeTaskImpl>
+          <RakeTaskImpl id="livereload">
+            <subtasks>
+              <RakeTaskImpl description="Disable Hotwire::Livereload" fullCommand="livereload:disable" id="disable" />
+              <RakeTaskImpl description="Enable Hotwire::Livereload" fullCommand="livereload:enable" id="enable" />
+            </subtasks>
+          </RakeTaskImpl>
           <RakeTaskImpl id="log">
             <subtasks>
               <RakeTaskImpl description="Truncate all/specified *.log files in log/ to zero bytes (specify which logs with LOGS=test,development)" fullCommand="log:clear" id="clear" />
@@ -566,6 +604,15 @@
                   <RakeTaskImpl description="Update the Stimulus manifest (will overwrite controllers/index.js)" fullCommand="stimulus:manifest:update" id="update" />
                 </subtasks>
               </RakeTaskImpl>
+            </subtasks>
+          </RakeTaskImpl>
+          <RakeTaskImpl id="tailwindcss">
+            <subtasks>
+              <RakeTaskImpl description="Build your Tailwind CSS" fullCommand="tailwindcss:build" id="build" />
+              <RakeTaskImpl description="Remove CSS builds" fullCommand="tailwindcss:clobber" id="clobber" />
+              <RakeTaskImpl description="Install Tailwind CSS into the app" fullCommand="tailwindcss:install" id="install" />
+              <RakeTaskImpl description="Upgrade app from Tailwind CSS v3 to v4" fullCommand="tailwindcss:upgrade" id="upgrade" />
+              <RakeTaskImpl description="Watch and build your Tailwind CSS on file changes" fullCommand="tailwindcss:watch" id="watch" />
             </subtasks>
           </RakeTaskImpl>
           <RakeTaskImpl description="Run all tests in test folder except system ones" fullCommand="test" id="test" />
