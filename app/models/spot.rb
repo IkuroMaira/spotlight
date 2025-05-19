@@ -12,4 +12,5 @@ class Spot < ApplicationRecord
   validates :name, presence: true
   # validates :latitude, presence: true
   # validates :longitude, presence: true
+  # validates :is_social_impact, presence: false # Je m'interroge dessus
 end

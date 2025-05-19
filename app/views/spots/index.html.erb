@@ -13,6 +13,12 @@
           <h2><%= spot.name %></h2>
 
           <div class="">
+            <% if spot.description == true %>
+              <p>
+                <%= spot.is_social_impact %>
+              </p>
+            <% end %>
+
             <p><%= spot.description %></p>
 
             <div class="">
