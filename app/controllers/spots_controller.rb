@@ -29,6 +29,11 @@ class SpotsController < ApplicationController
   end
 
   def update
+    if @spot.update(spot_params)
+      redirect_to @spot, notice: "Le spot a été mis à jour."
+    else
+      render edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
