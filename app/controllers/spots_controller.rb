@@ -4,7 +4,12 @@ class SpotsController < ApplicationController
 
   def index
     @mapbox_token = ENV["MAPBOX_ACCESS_TOKEN"]
-    @spots = Spot.all
+
+    if authenticated?
+      @spots = Current.user.spots.order(created_at: :desc)
+    else
+      @spots = Spot.none
+    end
   end
 
   def show
@@ -29,11 +34,6 @@ class SpotsController < ApplicationController
   end
 
   def update
-    if @spot.update(spot_params)
-      redirect_to @spot, notice: "Le spot a été mis à jour."
-    else
-      render edit, status: :unprocessable_entity
-    end
   end
 
   def destroy
