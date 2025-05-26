@@ -1,12 +1,12 @@
-<h1 class="text-5xl font-bold">Home Page</h1>
+<h1 class="text-5xl font-bold">Bienvenue <%= Current.user.username %></h1>
 
 <div class="flex items-center justify-center h-80">
   <div class="card w-96 bg-base-100 shadow-xl">
     <div class="card-body">
       <% if authenticated? %>
-        <%= link_to "Profil", user_path(Current.user), class: "btn btn-neutral" %>
+        <%= link_to "Mon profil", user_path(Current.user), class: "btn btn-neutral" %>
 
-        <%= link_to "Vos spots", spots_path, class: "btn btn-neutral" %>
+        <%= link_to "Mes spots", spots_path, class: "btn btn-neutral" %>
 
         <%= link_to "Ajouter un spot", new_spot_path, class: "btn btn-neutral" %>
       <% else %>

@@ -1,9 +1,6 @@
-<%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
-<%= tag.div(flash[:notice], style: "color:green") if flash[:notice] %>
-
 <%= link_to "Back", root_path, class: "btn btn-neutral m-4" %>
 
-<h1 class="text-2xl font-bold m-4">Page des spots</h1>
+<h1 class="text-2xl font-bold m-4">Mes spots</h1>
 
 <%= render "mapbox" %>
 
@@ -25,7 +22,7 @@
 
             <ul class="mt-6 flex flex-col gap-2 text-m">
               <li>
-                <% if spot.is_social_impact == true %>
+                <% if spot.is_social_impact? %>
                   <p>
                     <span class="badge badge-xs badge-warning">Spot à impact</span>
                   </p>
@@ -51,7 +48,7 @@
               <!-- Revoir cette partie -->
               <% if authenticated? && spot.user == Current.user %>
                 <%= link_to "Modifier", edit_spot_path(spot), class: "btn join-item" %>
-                <%= button_to "Supprimer", spots_path(spot),
+                <%= button_to "Supprimer", spot_path(spot),
                             method: :delete,
                             data: { turbo_confirm: "Êtes-vous sûr de vouloir supprimer ce spot ?" },
                             class: "btn join-item btn-outline btn-error"
