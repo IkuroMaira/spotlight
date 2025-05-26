@@ -1,0 +1,13 @@
+<div class="flex items-center justify-center">
+  <div class="card w-96 bg-base-100 shadow-xl">
+    <div class="card-body">
+      <div class="flex justify-between">
+        <h2 class="text-3xl font-bold">Modifier mon spot</h2>
+      </div>
+
+      <%= render "form", user: @spot %>
+
+      <%= link_to "Annuler", spots_path, class: "btn btn-neutral" %>
+    </div>
+  </div>
+</div>

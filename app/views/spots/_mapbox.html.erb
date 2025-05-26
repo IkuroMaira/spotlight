@@ -1,12 +1,14 @@
-<h2>SpotLight Map</h2>
-
-<div data-controller="map" class="map-container">
-  <div
-    data-map-target="map"
-    id="map"
-    data-map-token="<%= ENV['MAPBOX_ACCESS_TOKEN'] %>"
-    style="height: 500px; width: 100%; border-radius: 8px;"
-  >
-    Chargement de la carte...
+<div class="flex items-center justify-center">
+  <div class="card w-200 bg-base-100 shadow-sm">
+    <div data-controller="map" class="map-container">
+      <div
+        data-map-target="map"
+        id="map"
+        data-map-token="<%= ENV['MAPBOX_ACCESS_TOKEN'] %>"
+        style="height: 500px; width: 100%; border-radius: 8px;"
+      >
+        Chargement de la carte...
+      </div>
+    </div>
   </div>
 </div>
