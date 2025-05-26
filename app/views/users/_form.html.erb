@@ -10,33 +10,31 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :username, "Pseudo" %>
-    <%= form.text_field :username %>
-  </div>
+  <fieldset class="fieldset">
+    <%= form.label :username, "Pseudo", class: "label" %>
+    <%= form.text_field :username, class: "input" %>
+  </fieldset>
 
-  <div>
-    <%= form.label :email_address, "Email" %>
-    <%= form.email_field :email_address %>
-  </div>
+  <fieldset class="fieldset">
+    <%= form.label :email_address, "Email", class: "label" %>
+    <%= form.email_field :email_address, class: "input" %>
+  </fieldset>
 
   <!-- TODO: revoir la partie password car j'ai un "edit" dans le views/passwords/edit -->
-  <div>
-    <%= form.label :password, "Mot de passe #{"laisser vide si inchangé" if @user.persisted?}" %>
-    <%= form.password_field :password, required: !@user.persisted? %>
+  <fieldset class="fieldset">
+    <%= form.label :password, "Mot de passe #{"laisser vide si inchangé" if @user.persisted?}", class: "label" %>
+    <%= form.password_field :password, required: !@user.persisted?, class: "input" %>
     <% if @user.persisted? %>
       <small>Laissez ce champ vide si vous ne souhaitez pas changer votre mot de passe.</small>
     <% end %>
-  </div>
+  </fieldset>
 
   <% if @user.persisted? %>
-    <div>
-      <%= form.label :password_confirmation, "Confirmation du mot de passe"%>
-      <%= form.password_field :password_confirmation%>
-    </div>
+    <fieldset class="fieldset">
+      <%= form.label :password_confirmation, "Confirmation du mot de passe", class: "label" %>
+      <%= form.password_field :password_confirmation, class: "input"%>
+    </fieldset>
   <% end %>
 
-  <div>
-    <%= form.submit "Mettre à jour mon profil" %>
-  </div>
+  <%= form.submit "Mettre à jour mon profil", class: "btn btn-sm w-full" %>
 <% end %>

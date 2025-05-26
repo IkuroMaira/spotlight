@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
     static targets = ["map"]
     connect() {
-        console.log("Map controller connecté !")
+        console.log("Map controller connecté !");
         this.initializeMap()
     }
 

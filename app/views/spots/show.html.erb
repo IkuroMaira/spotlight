@@ -1,0 +1,43 @@
+<div class="grid grid-cols-3 gap-4 justify-items-center">
+    <div class="card w-96 bg-base-100 shadow-xl">
+      <div class="card-body">
+        <h2 class="text-3xl font-bold"><%= @spot.name %></h2>
+
+        <ul class="mt-6 flex flex-col gap-2 text-m">
+          <li>
+            <% if @spot.is_social_impact == true %>
+              <p>
+                <span class="badge badge-xs badge-warning">Spot à impact</span>
+              </p>
+            <% end %>
+          </li>
+
+          <li>
+            <p>
+              <%= @spot.description %>
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <span>Le: <%= @spot.created_at.strftime("%d/%m/%Y") %></span>
+            </p>
+          </li>
+        </ul>
+
+        <div class="join flex justify-center">
+          <%= link_to "Back", spots_path, class: "btn join-item btn-neutral" %>
+
+          <!-- Revoir cette partie -->
+          <% if authenticated? && @spot.user == Current.user %>
+            <%= link_to "Modifier", edit_spot_path(@spot), class: "btn join-item" %>
+            <%= button_to "Supprimer", @spot,
+                        method: :delete,
+                        data: { turbo_confirm: "Êtes-vous sûr de vouloir supprimer ce spot ?" },
+                        class: "btn join-item btn-outline btn-error"
+            %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+</div>
