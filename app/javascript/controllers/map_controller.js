@@ -2,6 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
     static targets = ["map"]
+
     connect() {
         console.log("Map controller connecté !");
         this.initializeMap()
@@ -15,7 +16,7 @@ export default class extends Controller {
             return;
         }
 
-        const mapboxToken = this.mapTarget.dataset.mapToken;
+        const mapboxToken = this.mapTarget.dataset.mapboxToken;
         console.log("Token récupéré ?", mapboxToken ? "Oui" : "Non");
 
         if (!mapboxToken) {
@@ -34,7 +35,7 @@ export default class extends Controller {
             this.map = new mapboxgl.Map({
                 container: this.mapTarget,
                 style: 'mapbox://styles/mapbox/streets-v12',
-                center: [2.3522, 48.8566], // Paris par défaut
+                center: [2.3522, 48.8566], // Paris par défaut, TOTO: à changer
                 zoom: 12
             });
 
