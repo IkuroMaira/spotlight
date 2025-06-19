@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     # Aller voir requête sous un format
-    redirect_to users_path, notice: "L'utilisateur a été supprimé !"
+    redirect_to session_path, notice: "L'utilisateur a été supprimé !"
   end
 
   private
