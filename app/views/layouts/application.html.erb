@@ -24,10 +24,36 @@
 
     <!-- Mapbox -->
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.12.0/mapbox-gl.css" rel="stylesheet">
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.12.0/mapbox-gl.js"></script>
+    <%= tag.meta name: "mapbox-api-key", content: ENV['MAPBOX_ACCESS_TOKEN'] %>
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar bg-neutral text-neutral-content">
+      <%= link_to "Home", root_path, class: "m-4" %>
+      <%= button_to "Log out", session_path, class: "m-4", method: :delete if authenticated?%>
+    </nav>
+
+    <main>
+      <!-- Dans ton layout application.html.erb -->
+      <% if flash[:notice] %>
+        <div role="alert" class="alert alert-success m-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span><%= flash[:notice] %></span>
+        </div>
+      <% end %>
+
+      <% if flash[:alert] %>
+        <div role="alert" class="alert alert-error m-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span><%= flash[:alert] %></span>
+        </div>
+      <% end %>
+
+      <%= yield %>
+    </main>
   </body>
 </html>

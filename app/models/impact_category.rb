@@ -1,2 +1,0 @@
-class ImpactCategory < ApplicationRecord
-end

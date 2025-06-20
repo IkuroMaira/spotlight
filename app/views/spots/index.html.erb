@@ -1,14 +1,74 @@
-<h1>Les spots sur un carte</h1>
+<%= link_to "Back", root_path, class: "btn btn-neutral m-4" %>
 
-<h2>SpotLight Map</h2>
+<h1 class="text-2xl font-bold m-4">Mes spots</h1>
 
-<div data-controller="map" class="map-container">
-  <div
-    data-map-target="map"
-    id="map"
-    data-map-token="<%= ENV['MAPBOX_ACCESS_TOKEN'] %>"
-    style="height: 500px; width: 100%; border-radius: 8px;"
-  >
-    Chargement de la carte...
+<%= render "mapbox" %>
+
+<div class="m-4">
+  <h1 class="text-2xl font-bold m-4">Tous les spots</h1>
+
+  <% if authenticated? %>
+    <div class="">
+      <%= link_to "Ajouter un nouveau spot", new_spot_path, class: "btn btn-neutral m-4" %>
+    </div>
+  <% end %>
+
+  <div class="grid grid-cols-3 gap-4 justify-items-center">
+    <% if @spots.any? %>
+      <% @spots.each do |spot| %>
+        <div class="card w-96 bg-base-100 shadow-xl">
+          <div class="card-body">
+            <h2 class="text-3xl font-bold"><%= spot.name %></h2>
+
+            <ul class="mt-6 flex flex-col gap-2 text-m">
+              <li>
+                <% if spot.is_social_impact? %>
+                  <p>
+                    <span class="badge badge-xs badge-warning">Spot à impact</span>
+                  </p>
+                <% end %>
+              </li>
+
+              <li>
+                <p>
+                  <%= spot.description %>
+                </p>
+              </li>
+
+              <li>
+                <p>
+                  <%= spot.address %>
+                </p>
+              </li>
+
+              <li>
+                <p>
+                  <span>Le: <%= spot.created_at.strftime("%d/%m/%Y") %></span>
+                </p>
+              </li>
+            </ul>
+
+            <div class="join flex justify-center">
+              <%= link_to "Voir", spot_path(spot), class: "btn join-item" %>
+
+              <!-- Revoir cette partie -->
+              <% if authenticated? && spot.user == Current.user %>
+                <%= link_to "Modifier", edit_spot_path(spot), class: "btn join-item" %>
+                <%= button_to "Supprimer", spot_path(spot),
+                            method: :delete,
+                            data: { turbo_confirm: "Êtes-vous sûr de vouloir supprimer ce spot ?" },
+                            class: "btn join-item btn-outline btn-error"
+                %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+    <% else %>
+      <div class="">
+        <p>Aucun spot n'a encore été ajouté.</p>
+      </div>
+    <% end %>
   </div>
 </div>

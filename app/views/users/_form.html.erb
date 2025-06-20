@@ -1,25 +1,40 @@
 <%= form_with model: @user do |form| %>
-  <div>
-    <%= form.label :pseudo %>
-    <%= form.text_field :pseudo %>
-  </div>
+  <% if @user.errors.any? %>
+    <div>
+      <h4><%= pluralize(@user.errors.count, "erreur") %> :</h4>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-  <div>
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
+  <fieldset class="fieldset">
+    <%= form.label :username, "Pseudo", class: "label" %>
+    <%= form.text_field :username, class: "input" %>
+  </fieldset>
 
-  <div>
-    <%= form.label :password %>
-    <%= form.text_field :password %>
-  </div>
+  <fieldset class="fieldset">
+    <%= form.label :email_address, "Email", class: "label" %>
+    <%= form.email_field :email_address, class: "input" %>
+  </fieldset>
 
-  <div>
-    <%= form.label :city %>
-    <%= form.text_field :city %>
-  </div>
+  <!-- TODO: revoir la partie password car j'ai un "edit" dans le views/passwords/edit -->
+  <fieldset class="fieldset">
+    <%= form.label :password, "Mot de passe #{"laisser vide si inchangé" if @user.persisted?}", class: "label" %>
+    <%= form.password_field :password, required: !@user.persisted?, class: "input" %>
+    <% if @user.persisted? %>
+      <small>Laissez ce champ vide si vous ne souhaitez pas changer votre mot de passe.</small>
+    <% end %>
+  </fieldset>
 
-  <div>
-    <%= form.submit %>
-  </div>
+  <% if @user.persisted? %>
+    <fieldset class="fieldset">
+      <%= form.label :password_confirmation, "Confirmation du mot de passe", class: "label" %>
+      <%= form.password_field :password_confirmation, class: "input"%>
+    </fieldset>
+  <% end %>
+
+  <%= form.submit "Mettre à jour mon profil", class: "btn btn-sm w-full" %>
 <% end %>

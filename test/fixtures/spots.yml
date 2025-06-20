@@ -2,12 +2,18 @@
 
 one:
   name: MyString
-  longitude: 1.5
+  description: MyText
   latitude: 1.5
-  impact_catagory_id: 1
+  longitude: 1.5
+  address: MyString
+  user: one
+  is_social_impact: false
 
 two:
   name: MyString
-  longitude: 1.5
+  description: MyText
   latitude: 1.5
-  impact_catagory_id: 1
+  longitude: 1.5
+  address: MyString
+  user: two
+  is_social_impact: false

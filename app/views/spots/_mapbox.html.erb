@@ -1,5 +1,14 @@
-<div class="fixed-map">
-  <div id="map">
-    Ici il y aura ma carte
+<div class="flex items-center justify-center">
+  <div class="card w-200 bg-base-100 shadow-sm">
+    <div data-controller="map" class="map-container">
+      <div
+        data-map-target="map"
+        id="map"
+        data-mapbox-token="<%= ENV['MAPBOX_ACCESS_TOKEN'] %>"
+        style="height: 500px; width: 100%; border-radius: 8px;"
+      >
+        Chargement de la carte...
+      </div>
+    </div>
   </div>
 </div>

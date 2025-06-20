@@ -1,0 +1,26 @@
+<div class="flex items-center justify-center h-screen">
+  <div class="card w-96 bg-base-100 shadow-xl">
+    <div class="card-body">
+      <div class="flex justify-between">
+        <h2 class="text-3xl font-bold">Connexion</h2>
+      </div>
+
+      <%= form_with url: session_path do |form| %>
+        <fieldset class="fieldset">
+          <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address], class: "input" %>
+        </fieldset>
+
+        <fieldset class="fieldset">
+          <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "Enter your password", maxlength: 72, class: "input" %>
+        </fieldset>
+
+        <div class="mt-6">
+          <%= form.submit "Se connecter", class: "btn btn-primary btn-block" %>
+        </div>
+      <% end %>
+
+      <%= link_to "Mot de passe oublié?", new_password_path %>
+      <%= link_to "S'inscrire", new_registration_path, class: "link" %>
+    </div>
+  </div>
+</div>
