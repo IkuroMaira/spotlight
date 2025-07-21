@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_05_12_092841) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_17_092132) do
   create_table "collections", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -100,6 +100,29 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_12_092841) do
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
   end
 
+  create_table "videos", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "description"
+    t.string "url", null: false
+    t.string "video_type", default: "upload", null: false
+    t.string "thumbnail_url"
+    t.integer "duration_seconds"
+    t.integer "file_size_bytes"
+    t.string "mime_type"
+    t.integer "user_id", null: false
+    t.integer "spot_id", null: false
+    t.boolean "is_featured", default: false
+    t.boolean "is_active", default: true
+    t.integer "views_count", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["spot_id", "is_featured"], name: "index_videos_on_spot_id_and_is_featured"
+    t.index ["spot_id"], name: "index_videos_on_spot_id"
+    t.index ["user_id", "created_at"], name: "index_videos_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_videos_on_user_id"
+    t.index ["video_type"], name: "index_videos_on_video_type"
+  end
+
   create_table "visit_statuses", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "spot_id", null: false
@@ -118,6 +141,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_12_092841) do
   add_foreign_key "reviews", "users"
   add_foreign_key "sessions", "users"
   add_foreign_key "spots", "users"
+  add_foreign_key "videos", "spots"
+  add_foreign_key "videos", "users"
   add_foreign_key "visit_statuses", "spots"
   add_foreign_key "visit_statuses", "users"
 end

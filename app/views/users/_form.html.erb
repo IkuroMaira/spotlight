@@ -22,7 +22,7 @@
 
   <!-- TODO: revoir la partie password car j'ai un "edit" dans le views/passwords/edit -->
   <fieldset class="fieldset">
-    <%= form.label :password, "Mot de passe #{"laisser vide si inchangé" if @user.persisted?}", class: "label" %>
+    <%= form.label :password, "Mot de passe", class: "label" %>
     <%= form.password_field :password, required: !@user.persisted?, class: "input" %>
     <% if @user.persisted? %>
       <small>Laissez ce champ vide si vous ne souhaitez pas changer votre mot de passe.</small>

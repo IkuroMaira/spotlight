@@ -10,6 +10,10 @@ class RegistrationsController < ApplicationController
 
     if @user.save
       start_new_session_for(@user)
+
+      # Pour envoyer plus tard le mail de bienvenu
+      UserMailer.welcome_email(@user.id).deliver_later
+
       redirect_to root_path, notice: "Bienvenue sur SpotLight ! Votre compte a été créé avec succès."
     else
       render :new, status: :unprocessable_entity
