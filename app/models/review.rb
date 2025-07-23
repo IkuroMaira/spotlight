@@ -4,5 +4,5 @@ class Review < ApplicationRecord
 
   validates :rating, presence: false, inclusion: { in: 1..5 }
   validates :spot, presence: true
-  validates :user, true
+  validates :user, presence: true
 end

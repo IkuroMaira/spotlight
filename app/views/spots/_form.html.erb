@@ -1,4 +1,4 @@
-<div class="container m-4">
+<div class="container">
   <%= form_with model: @spot do |form| %>
     <% if @spot.errors.any? %>
       <div>
@@ -21,11 +21,6 @@
       <%= form.text_area :description, class: "textarea h24", placeholder: "Lieu d'art..." %>
     </fieldset>
 
-<!--    <fieldset class="fieldset">-->
-      <%#= form.label :address, "Adresse", class: "fieldset-legend" %>
-      <%#= form.text_field :address, class: "input", placeholder: "33 rue ..." %>
-<!--    </fieldset>-->
-
     <fieldset class="fieldset">
       <%= form.label :address, "Adresse", class: "fieldset-legend" %>
       <label class="input">
@@ -47,10 +42,11 @@
                           class: "grow",
                           placeholder: "33 rue ...",
                           data: {
-                            map_target: "address-input",
                             controller: "autofill-search-address",
-                            autofill_search_address_target: "addressInput"
-                          }
+                            autofill_search_address_target: "addressInput",
+                            mapbox_token: ENV['MAPBOX_ACCESS_TOKEN']
+                          },
+                          autocomplete: "address_line1"
         %>
       </label>
     </fieldset>
@@ -64,10 +60,8 @@
 
     <!-- TODO: Ajouter les autres input nécessaire -->
 
-    <div class="container m-4">
-      <%= form.submit "Ajouter un spot", class: "btn" %>
-      <%= link_to "Annuler", spots_path, class: "btn" %>
+    <div class="container">
+      <%= form.submit "Valider", class: "btn w-full" %>
     </div>
   <% end %>
 </div>
-

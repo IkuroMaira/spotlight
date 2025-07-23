@@ -16,9 +16,15 @@ class User < ApplicationRecord
 
   normalizes :email_address, with: ->(e) { e.strip.downcase }
 
+  after_create_commit :send_welcome_email_async
+
   private
 
   def password_required?
     new_record? || password.present?
+  end
+
+  def send_welcome_email_async
+    UserMailer.welcome_email(self).deliver_later
   end
 end
