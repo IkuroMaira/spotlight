@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_17_092132) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_23_155228) do
   create_table "collections", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -28,6 +28,20 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_17_092132) do
     t.datetime "updated_at", null: false
     t.index ["collection_id", "spot_id"], name: "index_collections_spots_on_collection_id_and_spot_id"
     t.index ["spot_id", "collection_id"], name: "index_collections_spots_on_spot_id_and_collection_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "description"
+    t.datetime "start_time", null: false
+    t.datetime "end_time", null: false
+    t.string "location"
+    t.integer "spot_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["spot_id"], name: "index_events_on_spot_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "photos", force: :cascade do |t|
@@ -135,6 +149,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_17_092132) do
   end
 
   add_foreign_key "collections", "users"
+  add_foreign_key "events", "spots"
+  add_foreign_key "events", "users"
   add_foreign_key "photos", "spots"
   add_foreign_key "photos", "users"
   add_foreign_key "reviews", "spots"

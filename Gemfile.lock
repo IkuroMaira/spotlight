@@ -146,6 +146,7 @@ GEM
       railties (>= 7.0.0)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
+    icalendar (2.3.0)
     importmap-rails (2.1.0)
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
@@ -439,6 +440,7 @@ DEPENDENCIES
   dotenv-rails
   foreman
   hotwire-livereload
+  icalendar (~> 2.3)
   importmap-rails
   jbuilder
   kamal
