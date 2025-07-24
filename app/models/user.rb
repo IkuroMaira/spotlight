@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :photos, dependent: :destroy
   has_many :collections, dependent: :destroy
   has_many :visit_statuses, dependent: :destroy
-  has_many :events, dependent: destroy
+  has_many :events, dependent: :destroy
 
   # Validations
   validates :email_address, presence: true, uniqueness: true, length: { maximum: 30 }
