@@ -18,5 +18,7 @@ Rails.application.routes.draw do
   resources :home
   root "home#index"
 
-  resources :spots
+  resources :spots do
+    resources :events
+  end
 end
