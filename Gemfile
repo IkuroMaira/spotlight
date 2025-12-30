@@ -71,5 +71,5 @@ end
 gem "dartsass-rails" # SASS
 gem "mapkick-rb" # Mapkick créé par Andrew Kane
 gem "view_component" # To have CSS component
-gem "tailwindcss-rails", "~> 4.2" # To have Tailwind
+gem "tailwindcss-rails", "~> 4.4" # To have Tailwind
 gem 'icalendar', '~> 2.3' # This allows for the generation and parsing of .ics files, which are used by a variety of calendaring applications

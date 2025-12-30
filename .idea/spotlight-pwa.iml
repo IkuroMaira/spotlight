@@ -72,6 +72,7 @@
     <orderEntry type="library" scope="PROVIDED" name="google-protobuf (v4.30.2, rbenv: 3.4.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="hotwire-livereload (v2.0.0, rbenv: 3.4.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n (v1.14.7, rbenv: 3.4.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="icalendar (v2.3.0, rbenv: 3.4.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="importmap-rails (v2.1.0, rbenv: 3.4.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="io-console (v0.8.0, rbenv: 3.4.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="irb (v1.15.2, rbenv: 3.4.3) [gem]" level="application" />
