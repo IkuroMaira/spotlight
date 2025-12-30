@@ -4,6 +4,7 @@ class Spot < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :photos, dependent: :destroy
   has_many :visit_statuses, dependent: :destroy
+  has_many :events, dependent: :destroy
 
   # Association pour les relations many-to-many
   has_and_belongs_to_many :tags
