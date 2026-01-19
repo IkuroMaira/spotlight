@@ -41,3 +41,6 @@
 
 # Ignore files to learn Ruby On Rails
 docs/
+
+# Ignore IDE files
+.idea/
