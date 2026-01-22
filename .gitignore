@@ -44,3 +44,4 @@ docs/
 
 # Ignore IDE files
 .idea/
+.idea

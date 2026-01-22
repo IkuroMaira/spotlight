@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module ReviewServices
-  class CreateReview
+  class Create
     attr_reader :spot, :user, :rating, :comment, :review
 
     def initialize(spot:, user:, rating:, comment:)

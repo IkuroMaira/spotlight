@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_23_155228) do
+ActiveRecord::Schema[8.0].define(version: 2026_01_19_105522) do
   create_table "collections", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -85,6 +85,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_23_155228) do
     t.boolean "is_social_impact"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "average_rating", precision: 3, scale: 2, default: "0.0"
     t.index ["user_id"], name: "index_spots_on_user_id"
   end
 
