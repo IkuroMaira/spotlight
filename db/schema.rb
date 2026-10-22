@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_17_092132) do
+ActiveRecord::Schema[8.0].define(version: 2026_10_20_145634) do
   create_table "collections", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -18,6 +18,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_17_092132) do
     t.boolean "is_public"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "expires_at"
+    t.datetime "expiration_reminder_sent_at"
+    t.index ["expires_at"], name: "index_collections_on_expires_at"
     t.index ["user_id"], name: "index_collections_on_user_id"
   end
 

@@ -52,6 +52,8 @@ group :development, :test do
 
   # To use environment variables
   gem "dotenv-rails"
+
+  gem "rspec-rails"
 end
 
 group :development do

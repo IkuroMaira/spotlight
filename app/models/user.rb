@@ -25,6 +25,6 @@ class User < ApplicationRecord
   end
 
   def send_welcome_email_async
-    UserMailer.welcome_email(self).deliver_later
+    UserMailer.welcome_email(id).deliver_later
   end
 end
