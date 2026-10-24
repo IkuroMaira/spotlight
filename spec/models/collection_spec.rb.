@@ -1,1 +1,11 @@
 require "rails_helper"
+
+RSpec.describe BusinessDays do
+  describe ".before" do
+    it "skips the weekend when going back from a Monday" do
+      monday = Date.new(2026, 10, 19)
+
+      expect(BusinessDays.before(monday, 2)).to eq(Date.new(2026, 10, 15))
+    end
+  end
+end

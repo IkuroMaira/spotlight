@@ -1,0 +1,1 @@
+{"nodes": [{"id": "$graphify-root$_bin_jobs", "label": "jobs", "file_type": "code", "source_file": "bin/jobs", "source_location": "L1", "metadata": {"ruby_resolution_schema": 1}}], "edges": [], "raw_calls": []}

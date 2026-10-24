@@ -1,0 +1,12 @@
+[
+  {
+    "label": "RSpec : fichier courant",
+    "command": "bundle",
+    "args": ["exec", "rspec", "$ZED_RELATIVE_FILE"]
+  },
+  {
+    "label": "RSpec : test sous le curseur",
+    "command": "bundle",
+    "args": ["exec", "rspec", "$ZED_RELATIVE_FILE:$ZED_ROW"]
+  }
+]
